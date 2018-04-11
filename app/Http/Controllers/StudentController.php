@@ -96,15 +96,27 @@ class StudentController extends Controller
         $student->sex=$data['sex'];
 
         if($student->save()){
-            return redirect('student/index')->with('success', '233');
+            return redirect('student/index')->with('success', '修改成功');
         }else{
             return redirect()->back();
         }
     }
     //修改操作
-    public function update($id){
+    public function update(Request $request, $id){
 
         $student=Student::find($id);
+
+        if($request->isMethod('POST')){
+
+            $data=$request->input('Student');
+            $student->name=$data['name'];
+            $student->age=$data['age'];
+            $student->sex=$data['sex'];
+
+            if($student->save()){
+                return redirect('student/index')->with('success','修改成功-'.$id);
+            }
+        }
 
         return view('student.update',[
             'student'=>$student
