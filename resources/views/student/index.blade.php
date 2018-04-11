@@ -26,7 +26,7 @@
                     <td>
                         <a href="{{url('student/detail',['id'=>$student->id])}}">详情</a>
                         <a href="{{url('student/update',['id'=>$student->id])}}">修改</a>
-                        <a href="">删除</a>
+                        <a href="{{url('student/delete',['id'=>$student->id])}}">删除</a>
                     </td>
                 </tr>
                 @endforeach

@@ -136,8 +136,23 @@ class StudentController extends Controller
         ]);
     }
     //页面详情
-    public function detail()
+    public function detail($id)
     {
-        return view('student.detail');
+        $student=Student::find($id);
+        return view('student.detail',[
+            'student'=>$student
+        ]);
+    }
+    //删除操作
+    public function delete($id)
+    {
+        $student=Student::find($id);
+        if($student->delete()){
+            return redirect('student/index')->with('success','删除成功-'.$id);
+        }else{
+            return redirect('student/index')->with('error','删除失败-'.$id);
+
+        }
+        //return view('student.delete');
     }
 }
