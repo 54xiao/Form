@@ -81,7 +81,6 @@ class StudentController extends Controller
                 return redirect()->back();
             }
         }
-
         return view('student.create',[
             'student'=>$student
         ]);
@@ -108,6 +107,20 @@ class StudentController extends Controller
 
         if($request->isMethod('POST')){
 
+            $this->validate($request,[
+                'Student.name'=>'required|min:2|max:20',
+                'Student.age'=>'required|integer',
+                'Student.sex'=>'required|integer'
+            ],[
+                'required'=>':attribute 为必填项',
+                'min'=>':attribute 长度不符合要求',
+                'integer'=>':attribute 必须为整数'
+            ],[
+                'Student.name'=>'姓名',
+                'Student.age'=>'年龄',
+                'Student.sex'=>'性别'
+            ]);
+
             $data=$request->input('Student');
             $student->name=$data['name'];
             $student->age=$data['age'];
@@ -121,5 +134,10 @@ class StudentController extends Controller
         return view('student.update',[
             'student'=>$student
         ]);
+    }
+    //页面详情
+    public function detail()
+    {
+        return view('student.detail');
     }
 }

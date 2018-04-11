@@ -14,7 +14,7 @@ class  Student extends Model
     //定义时间戳
     public $timestamps = true;
 
-    public function sex($ind=null){
+    public function getSex($ind=null){
         $arr=[
             self::SEX_UN=>'未知',
             self::SEX_BOY=>'男',

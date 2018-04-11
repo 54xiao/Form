@@ -28,10 +28,10 @@
         <label class="col-sm-2 control-label">性别</label>
 
         <div class="col-sm-5">
-            @foreach($student->sex() as $ind=>$val)
+            @foreach($student->getSex() as $ind=>$val)
                 <label class="radio-inline">
                     <input type="radio" name="Student[sex]"
-                           {{$student->sex==$ind?'checked':''}}
+                           {{ isset($student->sex) && $student->sex==$ind ? 'checked' : ''}}
                            value="{{$ind}}"> {{$val}}
                 </label>
             @endforeach

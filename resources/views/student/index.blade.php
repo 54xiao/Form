@@ -21,10 +21,10 @@
                     <th scope="row">{{$student->id}}</th>
                     <td>{{$student->name}}</td>
                     <td>{{$student->age}}</td>
-                    <td>{{$student->sex($student->sex)}}</td>
+                    <td>{{$student->getSex($student->sex)}}</td>
                     <td>{{$student->created_at}}</td>
                     <td>
-                        <a href="">详情</a>
+                        <a href="{{url('student/detail',['id'=>$student->id])}}">详情</a>
                         <a href="{{url('student/update',['id'=>$student->id])}}">修改</a>
                         <a href="">删除</a>
                     </td>
