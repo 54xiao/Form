@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 
 
-Route::group(['middleware'=>['web']],function(){
 
     Route::get('student/index',['uses'=>'StudentController@index']);
     //Route::get('student/add',['uses'=>'StudentController@add']);
@@ -26,5 +25,3 @@ Route::group(['middleware'=>['web']],function(){
     Route::any('student/update/{id}',['uses'=>'StudentController@update']);
     Route::any('student/detail/{id}',['uses'=>'StudentController@detail']);
     Route::any('student/delete/{id}',['uses'=>'StudentController@delete']);
-
-});

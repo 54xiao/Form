@@ -38,7 +38,6 @@ class StudentController extends Controller
 
 
         if($request->isMethod('POST')){
-
             //1.控制器验证
             /*$this->validate($request,[
                 'Student.name'=>'required|min:2|max:20',
@@ -75,10 +74,11 @@ class StudentController extends Controller
 
             $data=$request->input('Student');
 
+
             if(Student::create($data)){
                 return redirect('student/index')->with('success','添加成功');
             }else{
-                return redirect()->back();
+                return redirect()->back()->with('error','添加失敗');
             }
         }
         return view('student.create',[

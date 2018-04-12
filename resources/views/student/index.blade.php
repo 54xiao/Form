@@ -1,6 +1,6 @@
 @extends('common.layouts')
 @section('content')
-        @include('common.message')
+@include('common.message')
     <!-- 自定义内容区域 -->
     <div class="panel panel-default">
         <div class="panel-heading">学生列表</div>
@@ -26,7 +26,8 @@
                     <td>
                         <a href="{{url('student/detail',['id'=>$student->id])}}">详情</a>
                         <a href="{{url('student/update',['id'=>$student->id])}}">修改</a>
-                        <a href="{{url('student/delete',['id'=>$student->id])}}">删除</a>
+                        <a href="{{url('student/delete',['id'=>$student->id])}}"
+                        onclick="if(confirm('确定要删除吗？')==false) return false">删除</a>
                     </td>
                 </tr>
                 @endforeach

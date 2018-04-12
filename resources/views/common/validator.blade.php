@@ -1,8 +1,7 @@
 @if(count($errors))
-
     <div class="alert alert-danger">
         <ul>
-            <li>{{$error->first()}}</li>
+            <li>{{$errors->first()}}</li>
         </ul>
     </div>
 <div class="alert alert-danger">
